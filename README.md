@@ -1,7 +1,7 @@
 # Processo seletivo Smakio
 ## Usando API IBM-Watson, NodeJS, MySQL e AJAX
 
-Edidanto Markdown usando dillinger.io . Enviando primeiro commit
+Edidanto Markdown usando dillinger.io . Enviando primeiro commit; Commits enviados
 
 - Type some Markdown on the left
 - See HTML in the right
