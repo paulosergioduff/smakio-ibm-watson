@@ -1,6 +1,0 @@
----
-applications:
-- name: text-to-speech-demo
-  command: npm start
-  path: .
-  memory: 512M
