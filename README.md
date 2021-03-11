@@ -20,6 +20,7 @@ Instale as dependências e siga estes passos:
 $ git clone https://github.com/paulosergioduff/smarkio-ibm-watson.git
 $ cd smarkio-ibm-watson
 $ npm install
--> Configure as variáveis de ambiente no arquivo .env para o banco MySQL e a API Watson
+-> Configure as variáveis de ambiente no arquivo .env-example para o banco MySQL e a API Watson
+-> Salve esse arquivo agora como .env ao invés de .env-example
 $ npm start
 ```
