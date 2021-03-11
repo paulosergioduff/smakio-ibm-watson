@@ -25,13 +25,31 @@ $( document ).ready(function() {
 			dataType : 'json',
 			success : function(customer) {
 				$("#postResultDiv").html("<p>" + 
-					"<p>Comentário enviado com sucesso!! <br>"); 
+					"<p class='mensagemAlerta'>Enviado com sucesso!! O servidor demora alguns segundos para gerar o audio do comentário. Clique em \"Atualizar lista\" daqui a alguns instantes<br>"); 
 
-				// Não consegui isolar a função de carregamento a tempo. Por este motivo, estou replicando o código aqui
-				// Não é o desejável, mas quero recarregar, mas preciso atualizar a exibição
 			},
 			error : function(e) {
 				alert("Error!")
+				console.log("ERROR: ", e);
+			}
+		});
+
+		// Não tive tempo de isolar essa função para recarregar a lista de comentários
+		// Este é o único motivo para estar usando esse trecho código desta maneira
+
+		$.ajax({
+			type : "GET",
+			url : "/api/users/all",
+			success: function(result){
+				$('#getResultDiv ul').empty();
+				var custList = "";
+				$.each(result, function(i, customer){
+					$('#getResultDiv .list-group').append(customer.id + " - " + customer.lastname +'<audio controls><source src=\"/static/uploads/'+customer.firstname+'.wav\" type=\"audio/wav\"></audio><br>')
+				});
+				console.log("Success: ", result);
+			},
+			error : function(e) {
+				$("#getResultDiv").html("<strong>Error</strong>");
 				console.log("ERROR: ", e);
 			}
 		});

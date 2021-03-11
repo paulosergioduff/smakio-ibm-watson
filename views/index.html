@@ -7,6 +7,31 @@
          .brand-text{
          color: white !important;
          }
+
+		 .coluna-esquerda{
+			 position: absolute;
+			 /*border-style: solid;
+			 border-color: red;*/
+			 width: 50%;
+			 left: 0%;
+		 }
+
+		 .coluna-direita{
+			 position: fixed;
+			 /*border-style: solid;
+			 border-color: blue;*/
+			 width: 50%;
+			 top: 8%;
+			 right: 0%;
+		 }
+
+		 .mensagemAlerta{
+			 position: fixed;
+			 bottom: 0px;
+			 left: 5px;
+			 background-color: blue;
+			 color: white;
+		 }
       </style>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -19,10 +44,10 @@
       <nav class="navbar navbar-expand-lg navbar-success bg-success">
          <a class="navbar-brand brand-text" href="/">Desafio SMARKIO - Usando MySQL e Watson com nodejs</a>
       </nav>
-      <div class="container mt-5" id="formularioRefresh">
+      <div class="container mt-12 ">
          <div class="row">
             <div class="col-md-7">
-               <form id="customerForm">
+               <form id="customerForm" class="coluna-esquerda">
                   <div class="form-group">
                      <label for="lastname">Comentários</label>
                      <textarea class="form-control" id="lastname" rows="7" placeholder="Digite aqui seu comentário"></textarea>
@@ -31,7 +56,7 @@
                </form>
             </div>
             <div class="col-md-5">
-               <div class="card-body">
+               <div class="card-body coluna-direita">
                   <table class="table table-bordered table-hover">
                      <div>
                         <button id="allCustomers" type="button" class="btn btn-warning">Atualizar lista</button>
@@ -55,5 +80,26 @@
             <br>
          </div>
       </div>
+	  <script>
+		  // Não tive tempo de isolar essa função para recarregar a lista de comentários
+		// Este é o único motivo para estar usando esse trecho código desta maneira
+
+		$.ajax({
+			type : "GET",
+			url : "/api/users/all",
+			success: function(result){
+				$('#getResultDiv ul').empty();
+				var custList = "";
+				$.each(result, function(i, customer){
+					$('#getResultDiv .list-group').append(customer.id + " - " + customer.lastname +'<audio controls><source src=\"/static/uploads/'+customer.firstname+'.wav\" type=\"audio/wav\"></audio><br>')
+				});
+				console.log("Success: ", result);
+			},
+			error : function(e) {
+				$("#getResultDiv").html("<strong>Error</strong>");
+				console.log("ERROR: ", e);
+			}
+		});
+	  </script>
    </body>
 </html>
