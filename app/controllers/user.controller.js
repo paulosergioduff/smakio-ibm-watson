@@ -1,5 +1,7 @@
 const db = require('../config/db.config.js');
 const User = db.user;
+require("dotenv").config();
+
  
 // Save FormData - User to MySQL
 exports.save = (req, res) => {
@@ -11,6 +13,7 @@ exports.save = (req, res) => {
 	},{
 		attributes: {include: ['firstname', 'lastname']}
 	}).then(user => {
+		//console.log(process.env.HELLO_V);
 		res.send(user);
 	})
 };

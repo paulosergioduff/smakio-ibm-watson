@@ -1,7 +1,7 @@
 const env = {
-  database: 'testdb',
+  database: 'ajax',
   username: 'root',
-  password: '12345',
+  password: 'Admin123!@#',
   host: 'localhost',
   dialect: 'mysql',
   pool: {
