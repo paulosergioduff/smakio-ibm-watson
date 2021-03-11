@@ -1,5 +1,5 @@
 const db = require('../config/db.config.js');
-const gravandoAudio = require('../config/watson-app.js');
+const gravandoAudio = require('../watson/watson-app.js');
 
 const User = db.user;
  

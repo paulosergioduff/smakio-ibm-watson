@@ -25,8 +25,10 @@ $( document ).ready(function() {
 			dataType : 'json',
 			success : function(customer) {
 				$("#postResultDiv").html("<p>" + 
-					"Post Successfully! <br>" +
-					"--> " + customer.firstname + " " + customer.lastname + ", createdAt: " + customer.createdAt+  "</p>"); 
+					"<p>Comentário enviado com sucesso!! <br>"); 
+
+				// Não consegui isolar a função de carregamento a tempo. Por este motivo, estou replicando o código aqui
+				// Não é o desejável, mas quero recarregar, mas preciso atualizar a exibição
 			},
 			error : function(e) {
 				alert("Error!")
