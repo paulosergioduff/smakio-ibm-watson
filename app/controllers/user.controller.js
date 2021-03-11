@@ -7,9 +7,9 @@ const User = db.user;
 // Save FormData - User to MySQL
 exports.save = (req, res) => {
 	console.log('Post a Customer: ' + JSON.stringify(req.body));
-	
+	let autorData = new Date().getTime();;
 	User.create({
-		firstname: req.body.firstname,
+		firstname: autorData,//req.body.firstname,
 		lastname: req.body.lastname,
 	},{
 		attributes: {include: ['firstname', 'lastname']}
@@ -17,7 +17,7 @@ exports.save = (req, res) => {
 		//console.log("Saida1: "+req.body.firstname);
 		//initVoz(req.body.lastname, req.body.firstname);
 		let comentario = req.body.lastname
-		let autor = req.body.firstname
+		let autor = autorData
 		gravandoAudio(comentario, autor);
 		res.send(user);
 	})

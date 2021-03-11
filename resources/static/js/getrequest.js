@@ -1,4 +1,6 @@
 $( document ).ready(function() {
+
+	
 	
 	// GET REQUEST
 	$("#allCustomers").click(function(event){

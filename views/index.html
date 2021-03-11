@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>JQuery Ajax - Bootstrap - NodeJS/Express - MySQL</title>
+  <title>Desafio SMARKIO - Usando MySQL e Watson com nodejs</title>
   <meta charset="utf-8">
 
   <style>
-	.comentariosApp{
-	  position: fixed !important;
-	  right: 10%;
-	  top: 20%;
-	  background-color: silver;
+	.brand-text{
+	  color: white !important;
 	}
 </style>
 
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -23,38 +19,63 @@
 </head>
  
 <body> 
+
+	<nav class="navbar navbar-expand-lg navbar-success bg-success">
+		<a class="navbar-brand brand-text" href="/">Desafio SMARKIO - Usando MySQL e Watson com nodejs</a>
+	  </nav>
+
+	  <div class="container mt-5">
+		<div class="row">
+		  <div class="col-md-7">
+	  
+			<form id="customerForm">
+
+		   
+				<div class="form-group">
+				  <label for="firstname">Seu nome:</label>
+				  <input type="text" class="form-control" id="firstname" placeholder="Digite aqui seu nome"/>
+				</div>
+				<div class="form-group">
+				  <label for="lastname">Comentário:</label>
+				  <input type="text" class="form-control" id="lastname" placeholder="Digite aqui seu comentário"/>
+				</div>
+				<button type="submit" class="btn btn-default">Enviar</button>
+			  </form>
+			
+		  </div>
+		  <div class="col-md-5">
+			<div class="card-body">
+	  
+			  <table class="table table-bordered table-hover">
+				<div>
+					<button id="allCustomers" type="button" class="btn btn-default">Atualizar lista</button>
+					<div id="getResultDiv" class="comentariosApp">
+						<h3>Comentários do sistema</h3>
+						<ul class="list-group">
+						</ul>
+					</div>
+				</div>
+			  </table>
+	  
+			  
+			</div>
+		  </div>
+		</div>
+	  </div>
+
+
 <div class="container"> 
 
 	<div class="col-sm-4">
-		<h3>Smakio - Desafio Watson/AJAX/Nodejs</h3>
 		<div>
 
 		
-		<form id="customerForm">
-
-		   
-		  <div class="form-group">
-			<label for="firstname">Seu nome:</label>
-			<input type="text" class="form-control" id="firstname" placeholder="Digite aqui seu nome"/>
-		  </div>
-		  <div class="form-group">
-			<label for="lastname">Comentário:</label>
-			<input type="text" class="form-control" id="lastname" placeholder="Digite aqui seu comentário"/>
-		  </div>
-		  <button type="submit" class="btn btn-default">Enviar</button>
-		</form>
+		
 	</div>
 	<div id="postResultDiv">
 	</div>
 	<br>
-	<div>
-		<button id="allCustomers" type="button" class="btn btn-default">Atualizar lista</button>
-		<div id="getResultDiv" class="comentariosApp">
-			<h3>Comentários do sistema</h3>
-	        <ul class="list-group">
-	    	</ul>
-    	</div>
-	</div>
+	
 </div>	
 </div>
 
