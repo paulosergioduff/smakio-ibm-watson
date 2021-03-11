@@ -1,7 +1,8 @@
 const db = require('../config/db.config.js');
-const User = db.user;
-require("dotenv").config();
+const gravandoAudio = require('../config/watson-app.js');
 
+const User = db.user;
+ 
  
 // Save FormData - User to MySQL
 exports.save = (req, res) => {
@@ -13,7 +14,11 @@ exports.save = (req, res) => {
 	},{
 		attributes: {include: ['firstname', 'lastname']}
 	}).then(user => {
-		//console.log(process.env.HELLO_V);
+		//console.log("Saida1: "+req.body.firstname);
+		//initVoz(req.body.lastname, req.body.firstname);
+		let comentario = req.body.lastname
+		let autor = req.body.firstname
+		gravandoAudio(comentario, autor);
 		res.send(user);
 	})
 };
