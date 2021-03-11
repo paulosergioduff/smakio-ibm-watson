@@ -30,7 +30,7 @@ const gravandoAudio = async function ($texto, $arquivo){
   return textToSpeech.repairWavHeaderStream(response.result);
 })
 .then(buffer => {
-    let arquivo = "./uploads/"+$arquivo+'.wav';
+    let arquivo = "./resources/static/uploads/"+$arquivo+'.wav';
   fs.writeFileSync(arquivo, buffer);
 })
 .catch(err => {

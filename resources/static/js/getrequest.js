@@ -15,7 +15,7 @@ $( document ).ready(function() {
 				$('#getResultDiv ul').empty();
 				var custList = "";
 				$.each(result, function(i, customer){
-					$('#getResultDiv .list-group').append(customer.id + ". " + customer.firstname + " " + customer.lastname + "<br>")
+					$('#getResultDiv .list-group').append(customer.id + ". " + customer.firstname + " " + customer.lastname +'<audio controls><source src=\"/static/uploads/'+customer.firstname+'.wav\" type=\"audio/wav\"></audio><br>')
 				});
 				console.log("Success: ", result);
 			},
