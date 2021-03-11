@@ -21,5 +21,5 @@ $ git clone https://github.com/paulosergioduff/smarkio-ibm-watson.git
 $ cd smarkio-ibm-watson
 $ npm install
 -> Configure as variáveis de ambiente no arquivo .env para o banco MySQL e a API Watson
-npm start
+$ npm start
 ```
